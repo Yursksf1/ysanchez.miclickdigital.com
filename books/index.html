@@ -46,7 +46,7 @@
         $('#messages').first('p').text('Cargando libros...');
         $('#messages').show();
         $.ajax( {
-            'url': window.location.href + (window.location.href.substr(window.location.href.length - 1) == '/' ? '' : '/' ) + 'books',
+            'url': window.location.href + (window.location.href.substr(window.location.href.length - 1) == '/' ? 'server.php' : '/server.php' ) + '?resource_type=books',
             'success' : function( data ) {
                 $('#messages').hide();
                 $('#booksTable > tbody').empty();
@@ -73,7 +73,7 @@
         $('#messages').first('p').text('Guardando libro...');
         $('#messages').show();
         $.ajax( {
-            'url': window.location.href + (window.location.href.substr(window.location.href.length - 1) == '/' ? '' : '/' ) + 'books',
+            'url': window.location.href + (window.location.href.substr(window.location.href.length - 1) == '/' ? 'server.php' : '/server.php' ) + '?resource_type=books',
             'method': 'POST',
             'data': JSON.stringify( newBook ),
             'success' : function( data ) {
