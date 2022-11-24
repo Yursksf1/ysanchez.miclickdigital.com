@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <a class="navbar-brand" href="#">
+            <h1 class="font_game"> 
+            </h1>
+          </a>
+          <a class="navbar-brand" href="./config.html">
+            <h1 class="font_game"> config </h1>
+          </a>
+    </nav>
+
+    <div class="container">
+        <div id="app">
+
+        </div>
+    </div>
+      
+    <script>
+        app = $("#app")
+        app.addClass('font_blackout')
+        app.addClass('game_numbers')
+        
+        NUMBER_LAYER = sessionStorage.getItem("number_layer") || "8"
+        NUMBER_FIND = sessionStorage.getItem("number_find") || "9"
+        NUM_ROWS = sessionStorage.getItem("number_rows") || 12
+        NUM_COLS = sessionStorage.getItem("number_cols") || 12
+
+        function getRandomArbitrary(min, max) {
+            return parseInt(Math.random() * (max - min) + min)
+        }
+        coordenada_row = getRandomArbitrary(1, NUM_ROWS)
+        coordenada_cell = getRandomArbitrary(1, NUM_COLS)
+        console.log(coordenada_row, coordenada_cell) 
+
+        for (let row = 0; row < NUM_ROWS; row++) {
+            div_row = document.createElement("div")
+            div_row.classList.add('row')
+            const element_row = row;
+            for (let cell = 0; cell <NUM_COLS; cell++) {
+                const element_cell = cell;
+                div_cell = document.createElement("div")
+                div_cell.classList.add('col')
+                div_cell.textContent = NUMBER_LAYER
+                if (row == coordenada_row && cell == coordenada_cell) { 
+                    div_cell.textContent = NUMBER_FIND
+                    div_cell.setAttribute("id", "win");
+                }
+                div_row.append(div_cell)
+            }
+            app.append(div_row)
+        }
+
+        $("#win").click(ganaste)
+        function ganaste(){
+            // alert('felicidades ganaste')
+            location.reload()
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>configuration</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="./index.html">
+          <h1 class="font_game"> 
+            home
+          </h1>
+        </a>
+        <a class="navbar-brand" href="#">
+          <h1 class="font_game">  </h1>
+        </a>
+  </nav>
+    <div class="container">
+        <div class="row"> 
+            <div class="col">
+                <p>
+                    Valor Fondo
+                </p>
+            </div>
+
+            <div class="col">
+                <div class="position-relative">
+                    <div class="position-absolute end-0">
+                        <input type="text" id="value_layer" class="form-control"> 
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button id='btn_value_layer' class="btn btn-info"> Guardar</button>
+            </div>
+        </div>
+
+        <div class="row"> 
+            <div class="col">
+                <p>
+                    Valor Buscar
+                </p>
+            </div>
+
+            <div class="col">
+                <div class="position-relative">
+                    <div class="position-absolute end-0">
+                        <input type="text" id="value_find" class="form-control"> 
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button id='btn_value_find' class="btn btn-info"> Guardar</button>
+            </div>
+        </div>
+
+        <div class="row"> 
+            <div class="col">
+                <p>
+                    Numero Rows
+                </p>
+            </div>
+
+            <div class="col">
+                <div class="position-relative">
+                    <div class="position-absolute end-0">
+                        <input type="number" id="number_layer" class="form-control"> 
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button id='btn_number_rows' class="btn btn-info"> Guardar</button>
+            </div>
+        </div>
+
+        <div class="row"> 
+            <div class="col">
+                <p>
+                    Numero Cols
+                </p>
+            </div>
+
+            <div class="col">
+                <div class="position-relative">
+                    <div class="position-absolute end-0">
+                        <input type="number" id="number_cols" class="form-control"> 
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button id='btn_number_cols' class="btn btn-info"> Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        $("#btn_value_layer").click(
+            () => {
+                sessionStorage.setItem("number_layer", $("#value_layer").val())
+            }
+        )
+
+
+        $("#btn_value_find").click(
+            () => {
+                sessionStorage.setItem("number_find", $("#value_find").val())
+            }
+        )
+
+
+        $("#btn_number_rows").click(
+            () => {
+                sessionStorage.setItem("number_rows", $("#number_layer").val())
+            }
+        )
+
+
+        $("#btn_number_cols").click(
+            () => {
+                sessionStorage.setItem("number_cols", $("#number_cols").val())
+            }
+        )
+
+
+
+        sessionStorage.setItem("number_layer", "8"),
+        sessionStorage.setItem("number_find", "9"), 
+        sessionStorage.setItem("number_rows", 12), 
+        sessionStorage.setItem("number_cols", 12)
+    </script>
+
+</body>
+</html>
